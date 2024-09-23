@@ -1,0 +1,31 @@
+openapi: "3.1.0"
+info:
+  title: "testcontainer API"
+  description: "testcontainer API"
+  version: "1.0.0"
+servers:
+  - url: "https://testcontainer"
+paths:
+  /api/users:
+    get:
+      summary: "GET api/users"
+      operationId: "getAllUsers"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
